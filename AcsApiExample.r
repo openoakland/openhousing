@@ -1,4 +1,4 @@
-#Source Code: http://www.kdnuggets.com/2014/06/data-visualization-census-data-with-r.html
+#Source Code: http://notesofdabbler.bitbucket.org/2013_12_censusBlog/censusHomeValueExplore_wdesc.html
 library(XML)
 library(RCurl)
 
