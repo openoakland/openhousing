@@ -1,0 +1,8 @@
+state and county id-name maps
+http://www.census.gov/econ/cbp/download/georef02.txt
+
+zcta to county map
+http://www.census.gov/geo/maps-data/data/zcta_rel_download.html
+
+shape file of zips in Indiana
+http://www.census.gov/cgi-bin/geo/shapefiles2010/layers.cgi
