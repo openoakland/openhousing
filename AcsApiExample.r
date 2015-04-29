@@ -1,3 +1,4 @@
+#Source Code: http://www.kdnuggets.com/2014/06/data-visualization-census-data-with-r.html
 library(XML)
 library(RCurl)
 
