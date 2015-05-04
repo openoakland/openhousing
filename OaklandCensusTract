@@ -1,6 +1,6 @@
-
+##Source of Code: http://notesofdabbler.bitbucket.org/2013_12_censusBlog/censusHomeValueExplore_wdesc.html
 ##Install any needed packages using "install.packages('nameOfPackage')"
-##Source of stolen Code: http://notesofdabbler.bitbucket.org/2013_12_censusBlog/censusHomeValueExplore_wdesc.html
+
 ##Hyperlinks to necessary data
   #state and county id-name maps
   #http://www.census.gov/econ/cbp/download/georef02.txt
@@ -12,7 +12,7 @@
   #http://www.census.gov/cgi-bin/geo/shapefiles2010/layers.cgi
 
 
-###COMMENCE SCRIPT###
+###BEGIN SCRIPT###
 #set working directory 
 wDir = "~/Open Oakland/Oakland Tracts/Data"
 setwd(wDir)
@@ -157,3 +157,11 @@ p = p + labs(title="Percent Black by Census Tract")
 p = p + theme(legend.title=element_blank(),plot.title=element_text(face="bold"))
 print(p)
 
+
+
+###EXPORT DATA TO CSV
+##Reduce to only desired columns
+exportTract = tractPlt[,(colnames(tractPlt)%in% c("id","long","lat","percentBlack"))]
+##Rename columns
+names(exportTract) = c("tract", "long",'lat', "prcntBlck")
+write.csv(exportTract, file = "PercentBlack.csv")
