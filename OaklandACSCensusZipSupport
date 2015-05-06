@@ -1,3 +1,12 @@
+##Hyperlinks to necessary data
+
+#state and county id-name maps
+#http://www.census.gov/econ/cbp/download/georef02.txt
+
+#zcta to county map
+#http://www.census.gov/geo/maps-data/data/zcta_rel_download.html
+
+
 #set working directory
 wDir = "~/Open Oakland/Exploring Oakland/Data"
 setwd(wDir)
