@@ -5,7 +5,7 @@
   #1) state and county id-name maps (copy data into new file: "stateCntyCodes.txt")
   #http://www.census.gov/econ/cbp/download/georef02.txt
 
-  #2) zcta to census tract (Option 1)
+  #2) zcta to census tract (Option 4)
   #http://www.census.gov/geo/maps-data/data/zcta_rel_download.html
 
   #3) shape file of tracts in Oakland ("return to: main download page"-> "layer type: census tract" -> 
