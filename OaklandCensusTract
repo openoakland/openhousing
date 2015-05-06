@@ -1,14 +1,15 @@
 ##Source of Code: http://notesofdabbler.bitbucket.org/2013_12_censusBlog/censusHomeValueExplore_wdesc.html
 ##Install any needed packages using "install.packages('nameOfPackage')"
 
-##Hyperlinks to necessary data
-  #state and county id-name maps
+##Hyperlinks to necessary data (copy data into new file: "stateCntyCodes.txt")
+  #1) state and county id-name maps
   #http://www.census.gov/econ/cbp/download/georef02.txt
 
-  #zcta to census tract
+  #2) zcta to census tract (Option 1)
   #http://www.census.gov/geo/maps-data/data/zcta_rel_download.html
 
-  #shape file of tracts in Oakland
+  #3) shape file of tracts in Oakland ("return to: main download page"-> "layer type: census tract" -> 
+  # "2010: California" -> "county: alameda")
   #http://www.census.gov/cgi-bin/geo/shapefiles2010/layers.cgi
 
 
