@@ -1,8 +1,8 @@
 ##Hyperlinks to necessary data
-#state and county id-name maps (copy data into new file: "stateCntyCodes.txt")
+# 1)state and county id-name maps (copy data into new file: "stateCntyCodes.txt")
 #http://www.census.gov/econ/cbp/download/georef02.txt
 
-#zcta to county map (option 1)
+# 2)zcta to county map (option 1)
 #http://www.census.gov/geo/maps-data/data/zcta_rel_download.html
 
 
