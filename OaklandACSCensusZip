@@ -2,19 +2,16 @@
 ##Source of stolen Code: http://notesofdabbler.bitbucket.org/2013_12_censusBlog/censusHomeValueExplore_wdesc.html
 
 
-##Hyperlinks to necessary data
-
-#state and county id-name maps
-#http://www.census.gov/econ/cbp/download/georef02.txt
-
-#zcta to county map
-#http://www.census.gov/geo/maps-data/data/zcta_rel_download.html
+##[Hyper]links to necessary data
 
 #shape file of zips in Oakland
 #http://www.census.gov/cgi-bin/geo/shapefiles2010/layers.cgi
 
+# zipCityCountyStateMap.rda is created in the OaklandACSCensusZipSupport file
+load("zipCityCountyStateMap.Rda")
+head(zipMap2)
 
-###START SCRIPT###
+###LOAD LIBRARIES####
 #set working directory 
 wDir = "~/Open Oakland/Exploring Oakland/Data"
 setwd(wDir)
@@ -35,15 +32,11 @@ library(RJSONIO)
 
 
 ####SET-UP Mapping Data####
-# get zip-city-county-state map, this is loaded into dataset zipMap2
-# zipCityCountyStateMap.rda is created in the support file
-load("zipCityCountyStateMap.Rda")
-head(zipMap2)
 
 # list of counties in the greater Oakland area
 cntyList = c("Alameda County, CA")
 
-# zipcodes in Alameda
+# zipcodes in Alameda ('zipMap2' comes from above-"zipCityCountyStateMap.Rda")
 zipOak=zipMap2[zipMap2$ctyname %in% cntyList,]
 zipOak2=zipOak[!duplicated(zipOak$ZCTA5),]
 head(zipOak2)
