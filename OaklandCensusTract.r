@@ -1,8 +1,8 @@
 ##Source of Code: http://notesofdabbler.bitbucket.org/2013_12_censusBlog/censusHomeValueExplore_wdesc.html
 ##Install any needed packages using "install.packages('nameOfPackage')"
 
-##Hyperlinks to necessary data (copy data into new file: "stateCntyCodes.txt")
-  #1) state and county id-name maps
+##Hyperlinks to necessary data 
+  #1) state and county id-name maps (copy data into new file: "stateCntyCodes.txt")
   #http://www.census.gov/econ/cbp/download/georef02.txt
 
   #2) zcta to census tract (Option 1)
