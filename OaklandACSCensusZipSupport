@@ -1,5 +1,5 @@
 ##Hyperlinks to necessary data
-#state and county id-name maps (copy and paste data into a .txt)
+#state and county id-name maps (copy data into new file: "stateCntyCodes.txt")
 #http://www.census.gov/econ/cbp/download/georef02.txt
 
 #zcta to county map (option 1)
