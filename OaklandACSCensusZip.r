@@ -4,7 +4,8 @@
 
 ##[Hyper]links to necessary data
 
-# 1)shape file of zips in Oakland ('return to: main download page' -> 'zipcode tabulation areas'->'2010: California')
+# 1)shape file of zips in Oakland ('return to: main download page' -> 'layer type: zipcode tabulation areas'->
+# '2010: California')
 #http://www.census.gov/cgi-bin/geo/shapefiles2010/layers.cgi
 
 # zipCityCountyStateMap.rda is created in the OaklandACSCensusZipSupport file
