@@ -25,7 +25,7 @@ rm(list=ls(all=TRUE)) ##Erase value of all variables
   #This will change the values of place and placeShp3, used throughout the code 
     
 ###BEGIN SCRIPT###
-#set working directory (place into this directory all of the data downloaded above)
+#set working directory (Into this directory, place all of the data downloaded above)
 wDir = "~/your directory here" #(in Windows, the ~ represents "C:/Users/'username'/Documents")
 setwd(wDir)
 
