@@ -3,7 +3,7 @@
 
 
 ##[Hyper]links to necessary data
-
+##Request API key from census.gov/developers 
 # 1)shape file of zips in Oakland ('return to: main download page' -> 'layer type: zipcode tabulation areas'->
 # '2010: California')
 #http://www.census.gov/cgi-bin/geo/shapefiles2010/layers.cgi
@@ -63,7 +63,7 @@ names(zipOakList) = c("zip")
 ####START GETTING DATA TO MAP####
 
 ###2010 CENSUS DATA###
-APIkey ="68c9ac687e1e210c4d44bfd6ade4b0c5d1c34e38" 
+APIkey =##Get your own key, as required by the census.gov user agreement
 
 # state code (CA)
 state=06
