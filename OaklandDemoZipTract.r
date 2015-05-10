@@ -5,7 +5,7 @@ rm(list=ls(all=TRUE)) ##Erase value of all variables
 	#Request APIkey at census.gov/developers
 	#Download OakPlace.csv (found in openoakland/openhousing/data)
 	  #In gitHub, view RAW version of OakPlace.csv 
-	  #Then, copy and paste raw data to text editor 
+	  #Then, copy and paste raw data to text editor (for me, notepad works better than excel)
 	  #Finally, save new file as .csv 
 	#Download two sets of Shape Files
 		#http://www.census.gov/cgi-bin/geo/shapefiles2010/layers.cgi
