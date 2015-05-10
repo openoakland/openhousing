@@ -18,10 +18,10 @@ rm(list=ls(all=TRUE)) ##Erase value of all variables
 ##INSTRUCTIONS: How to switch between zipcodes and census tracts
   #To use census tracts (current setting of script)
     #Ensure comments ('#') are present on lines 71 and 72
-    #Ensure comments ('#') are absent from lines 73 and 74
+    #	" 	"      "    "  absent from lines 73 and 74
   #To use zip codes 
     #Ensure comments ('#') are present on lines 73 and 74
-    #Ensure comments ('#') are absent from lines 71 and 72
+    #	" 	"      "    "  absent from lines 71 and 72
   #This will change the values of place and placeShp3, used throughout the code 
     
 ###BEGIN SCRIPT###
