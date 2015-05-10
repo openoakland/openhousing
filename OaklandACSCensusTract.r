@@ -16,7 +16,7 @@
 
 
 ###BEGIN SCRIPT###
-#set working directory 
+#set working directory (place all of the data downloaded above into this directory)
 wDir = "~/Open Oakland/Oakland Tracts/Data"
 setwd(wDir)
 
@@ -99,7 +99,7 @@ print(p)
 
 ###2010 CENSUS DATA###
 
-APIkey =##Get your own, as required by the census user agreement
+APIkey =##Request your key, as required by Census API user agreement 
 
 # state code (CA)
 state=06
@@ -162,7 +162,7 @@ print(p)
 
 
 
-###EXPORT DATA TO CSV
+###EXPORT CENSUS DATA TO CSV###
 ##Reduce to only desired columns
 exportTract = tractPlt[,(colnames(tractPlt)%in% c("id","long","lat","percentBlack"))]
 ##Rename columns
@@ -170,15 +170,44 @@ names(exportTract) = c("tract", "long",'lat', "prcntBlck")
 write.csv(exportTract, file = "PercentBlack.csv")
 
 
-##2011 ACS DATA##
+###2011 ACS DATA###
+state = 06
+APIkey=##Request your key, as required by Census API user agreement
 
-#Median Income(all states)
-fieldnm="B19013_001E"
-resURL=paste("http://api.census.gov/data/2011/acs5?get=",fieldnm,
+#Function to get ACS data
+getACSData=function(APIkey, state, fieldnm, fieldName){
+	resURL=paste("http://api.census.gov/data/2011/acs5?get=",fieldnm,
                "&for=tract:*&in=state:",state,"&key=",
                APIkey,sep="")
-dfInc=fromJSON(resURL)
-dfInc=dfInc[2:length(dfInc)]
-dfInc_zip=as.character(sapply(dfInc,function(x) x[4]))
-dfInc_medinc=as.character(sapply(dfInc,function(x) x[1]))
-dfInc2=data.frame(dfInc_zip,as.numeric(dfInc_medinc))
+	dfJSON = fromJSON(resURL)
+	dfJSON=dfJSON[2:length(dfJSON)]
+	dfJSON_tract=as.character(sapply(dfJSON,function(x) x[4]))
+	dfJSON_val=as.character(sapply(dfJSON,function(x) x[1]))
+	df=data.frame(dfJSON_tract,as.numeric(dfJSON_val))
+	names(df)=c("tract",fieldName)
+	return(df)
+}
+
+#Median Income
+fieldnm="B19013_001E"
+fieldName="MedInc"
+medInc = getACSData(APIkey, state, fieldnm, fieldName)
+
+#Remove NAs
+#medInc=medInc[!is.na(medInc$MedInc),]
+
+###MAP ACS Data###
+medInc$medIncCut = cut(medInc$MedInc, 
+		breaks = c(0,50000,75000,100000,120000),
+		labels=c("<50K","50-75K","75-100K",">100K"))
+
+tractShp3$rnum=seq(1,nrow(tractShp3))
+tractPlt=merge(tractShp3,medInc,by.x=c("id"),by.y=c("tract"))
+tractPlt=tractPlt[order(tractPlt$rnum),]
+		
+p = ggmap(x)
+p = p + geom_polygon(data = tractPlt, aes(x=long,y=lat,group=id,fill=medIncCut),color="black",alpha=0.2)
+p = p + scale_fill_manual(values=rainbow(20)[c(4,8,12,16,20)])
+p = p + labs(title="Percent Black by Census Tract")
+p = p + theme(legend.title=element_blank(),plot.title=element_text(face="bold"))
+print(p)
