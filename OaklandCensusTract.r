@@ -1,7 +1,9 @@
 ##Source of Code: http://notesofdabbler.bitbucket.org/2013_12_censusBlog/censusHomeValueExplore_wdesc.html
 ##Install any needed packages using "install.packages('nameOfPackage')"
 
+
 ##Hyperlinks to necessary data 
+##Obtain an API key from the census: http://www.census.gov/developers/
   #1) state and county id-name maps (copy data into new file: "stateCntyCodes.txt")
   #http://www.census.gov/econ/cbp/download/georef02.txt
 
@@ -97,7 +99,7 @@ print(p)
 
 ###2010 CENSUS DATA###
 
-APIkey ="68c9ac687e1e210c4d44bfd6ade4b0c5d1c34e38" 
+APIkey =##Get your own, as required by the census user agreement
 
 # state code (CA)
 state=06
@@ -166,3 +168,17 @@ exportTract = tractPlt[,(colnames(tractPlt)%in% c("id","long","lat","percentBlac
 ##Rename columns
 names(exportTract) = c("tract", "long",'lat', "prcntBlck")
 write.csv(exportTract, file = "PercentBlack.csv")
+
+
+##2011 ACS DATA##
+
+#Median Income(all states)
+fieldnm="B19013_001E"
+resURL=paste("http://api.census.gov/data/2011/acs5?get=",fieldnm,
+               "&for=tract:*&in=state:",state,"&key=",
+               APIkey,sep="")
+dfInc=fromJSON(resURL)
+dfInc=dfInc[2:length(dfInc)]
+dfInc_zip=as.character(sapply(dfInc,function(x) x[4]))
+dfInc_medinc=as.character(sapply(dfInc,function(x) x[1]))
+dfInc2=data.frame(dfInc_zip,as.numeric(dfInc_medinc))
