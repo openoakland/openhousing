@@ -2,15 +2,6 @@
 
 var google_api_key = "AIzaSyD0tmoXx3oJAPITndZR4f3I5GcnV-Jram4";
 var pitch = 0; // In streetview, angle with respect to the horizon.
-// How much to increment the score for a correct answer 
-// or decrement for a "I don't know".
-var score_increment = 10; 
-var useProfilePicAsMarker = true;
-
-// End Configurable section.
-
-// every X milliseconds, decrement remaining time to answer this question on a tour.
-var tour_question_decrement_interval = 5000;
 
 var logging_level = INFO;
 
@@ -75,45 +66,3 @@ function start_tour() {
 function tour_loop() {
 }
 
-var answer_info = {};
-var correct_answers = [];
-
-function update_map(question,correct_answer,target_language,target_locale) {    
-    L.circle([current_lat, 
-	      current_long], 10, {
-	color: 'lightblue',
-	fillColor: 'green',
-	fillOpacity: 0.5
-    }).addTo(map).bindPopup(question + " &rarr; <i>" + correct_answer + "</i><br/>" + "<tt>["+current_lat+","+current_long+"]</tt>")
-    step = step + direction;
-
-    var path = tour_paths[target_language][target_locale];
-    navigate_to(step,path,true);
-}
-
-function navigate_to(step,path,do_encouragement) {
-    log(DEBUG,"NAVIGATE TO: " + path);
-    heading = get_heading(path,step);
-
-    current_lat = path[step][0];
-    current_long = path[step][1];
-
-    get_quadrant(path,step);
-
-    // update the background OpensStreetMaps position:
-    map.panTo(path[step]);
-   
-    // update the marker on the background OpenStreetMaps too:
-    marker.setLatLng(path[step]);
-    if (do_encouragement == true) {
-	var encouragement = Math.floor(Math.random()*encouragements.length);
-	marker.setPopupContent("<b>" + encouragements[encouragement] + 
-			       "</b> " + step + "/" + path.length);
-    }
-    if (iconMarker != undefined) {
-	iconMarker.setLatLng(path[step]);
-    }
-
-    // update Google streetview:
-    $("#streetviewiframe").attr("src","https://www.google.com/maps/embed/v1/streetview?key="+google_api_key+"&location="+current_lat+","+current_long+"&heading="+heading+"&pitch="+pitch+"&fov=35");
-}
