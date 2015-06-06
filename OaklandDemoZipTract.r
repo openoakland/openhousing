@@ -62,7 +62,7 @@ x=get_googlemap(center="Oakland",maptype=c("roadmap"))
 
 ####GET DEMOGRAPHICS####
 #Global Values
-APIkey = #Request your own key, as required by census api user agreement
+APIkey = '53626026246a1ac81f5b8c7f66854ec25194a5c1'
 state=06 #California
 county = 001 #Alameda County
 #Set-up zip code and tract
