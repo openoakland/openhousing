@@ -81,7 +81,7 @@ getCensusData=function(APIkey,state,place, fieldnm, fieldName){
   resURL=paste("http://api.census.gov/data/2010/sf1?get=",fieldnm,
                place[1],state,"&key=",
                APIkey,sep="")
-  dfJSON=fromJSON(resURL)
+dfJSON=fromJSON(resURL)
   dfJSON=dfJSON[2:length(dfJSON)]
   num = as.integer(place[[2]])
   dfJSON_place=sapply(dfJSON,function(x) x[num])

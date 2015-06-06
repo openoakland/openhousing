@@ -1,0 +1,565 @@
+body {
+   font-family: sans-serif;
+}
+
+div.selected {
+    background: #caecae;
+}
+
+div.major {
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    border:4px solid #caecae;
+    margin-top:0.5em;
+    margin-bottom:0.5em;
+    padding-bottom:2px;
+}
+
+.rounded {
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border:4px solid #aeecb4;
+    border-radius: 5px;
+    margin-top:0.5em;
+    margin-bottom:0.5em;
+    padding-bottom:2px;
+}
+
+h3 {
+    background:#d4d6fa;
+}
+
+form {
+    float:left;
+}
+
+div.quiz-elem {
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    padding:0;
+    margin:0;
+}
+
+div#workbooka {
+    width:99%;
+    float:left;
+    padding-left:3px;
+    padding-right:3px;
+}
+
+div.quiz-elem form {
+    margin:2px;
+}
+
+h1 {
+    width:auto;
+    padding:0;
+    margin:0.5em;
+}
+
+div.http h4 {
+    padding:0;
+    margin:0;
+}
+
+div.http a {
+    padding:0.25em;
+}
+
+div#menubar {
+    border:1px solid #18ab29;
+    -moz-border-radius:5px;
+    -webkit-border-radius:5px;
+    border-radius:5px;
+    background:ivory;
+    float:left;
+    white-space:nowrap;
+    padding:0em;
+    position:relative;
+}
+
+div#menubar div {
+    float:left;
+    padding:3px;
+    margin-right:2em;
+}
+
+div.poweredbox table {
+    width:100%;
+    text-align:center;
+}
+
+div.poweredbox td {
+    border:1px solid #878ade;
+    text-align:center;
+}
+
+div.guess {
+    padding-left:1em;
+}
+
+div.guess h3 {
+    padding:0.5em;
+    margin:0;
+    text-align:left;
+    width:auto;
+}
+
+div.guess i {
+    float:right;
+    text-align:right;
+    width:auto;
+}
+
+.debug {
+    display:none;
+}
+
+div.debug {
+    border:0px dashed green;
+    margin:1px;
+    padding:1px;
+}
+
+div.history h2 {
+    padding:0.25em;
+    margin:0;
+    background: #caecae;
+}
+
+div.history td {
+    padding:1px;
+}
+
+div.quiz-elem {
+    padding-top:0;
+    padding-bottom:1em;
+    margin-top:0;
+    margin-bottom:1em;
+    border: 4px solid #caecae;
+}
+
+div.quiz-elem h2 {
+    padding:0.25em;
+    margin:0;
+    background: #caecae;
+}
+
+div.quiz form {
+    margin-left:2%;
+}
+
+div.quiz input.submit {
+    padding:0.5em;
+    margin-left:1.5em;
+}
+
+td.correct {
+    background:lightgreen !important;
+}
+
+td.incorrect {
+    background:red !important;
+}
+
+div.test {
+    float:left;
+    padding: 0.5em;
+    margin-top:1em;
+    margin-left:1em;
+    min-width:30%;
+}
+
+div.stats {
+    display:none;
+}
+
+div.utterance {
+    font-style:italic;
+}
+
+div.syntax {
+    float:left;
+    width:100%;
+}
+
+div.syntax table {
+    float:left;
+    width:100%;
+}
+
+div.syntax td {
+    vertical-align:top;
+}
+
+table.fs th.fs {
+    padding-right:0.5em;
+    font-weight:normal;
+    font-style:italic;
+}
+
+div.reqdata {
+    display:none;
+    height:15em;
+    overflow:scroll;
+    font-size:small;
+    font-family:monospace;
+    width:50%;
+    border:2px solid blue;
+    padding:3px;
+    position: absolute;
+    bottom:0;
+    right:0;
+}
+
+div.reqdata table {
+    width:95%;
+}
+
+div.reqdata th {
+    text-align:right;
+    border-bottom:1px dashed black;
+}
+
+div.reqdata td {
+    width:10em;
+    text-align:right;
+    border-bottom:1px dashed black;
+}
+
+div.optiongroup {
+    border:1px solid #caecae;
+    padding:2px;
+    margin:2px;
+    float:left;
+}
+
+div.optiongroup h4 {
+    margin:0;
+    padding:0;
+}
+
+div.history table {
+    width:95%;
+    float:left;
+}
+
+table.matrix td {
+    text-align:center;
+}
+
+table.matrix td.path {
+    background: #008800;
+
+}
+
+table.matrix td.path {
+    background: red;
+
+}
+
+table.matrix td.corrent {
+    background: lightgreen;
+}
+
+span.insert {
+    color: #bbb;
+    visibility:none;
+    text-decoration:line-through;
+    border-bottom: 8px solid red;
+}
+
+span.delete {
+    border-bottom: 8px solid red;
+    color: transparent; /* causes the correct letter to be invisible in this context, which is
+                           the user's guess: if span is class
+                           delete, it's something that appears in the
+                           correct answer, but which the user failed
+                           to type. Since the correct answer will be
+                           shown in the line above the user's input
+                           string, we don't need to make the letter
+                           visible; we will indicate the missing
+                           correct letter by showing an empty
+                           (transparent) blank space where the correct
+                           letter is missing from the user's guess. */
+    border-bottom: 8px solid red;
+}
+
+span.subst {
+    border-bottom: 8px solid red;
+    text-decoration:line-through;
+    color:#bbb;
+}
+
+span.match {
+    color:#111;
+    border-bottom: 8px solid lightgreen;
+}
+
+td.corr span.match {
+    color: black;
+}
+
+td.eval {
+    white-space:normal;
+}
+
+td.eval span {
+    padding:1px;
+}
+
+table.history {
+    border-collapse: collapse;
+    width:100%;
+    border:3px solid #33ffff;
+    margin:0.5em;
+}
+
+tr.odd {
+    background: #33ffff;
+}
+
+tr.dist0 {
+    font-size: 250%;
+}
+
+tr.dist1 {
+    font-size: 250%;
+}
+
+tr.dist1 td {
+    padding-bottom:1em;
+}
+
+tr.dist2 {
+    font-size: 200%;
+}
+
+tr.dist2 td {
+    padding-bottom:1em;
+}
+
+tr.dist3 {
+    font-size: 200%;
+}
+
+tr.dist3 td {
+    padding-bottom:1em;
+}
+
+tr.dist4 {
+    font-size: 100%;
+}
+
+tr.dist4 td {
+    padding-bottom:1em;
+}
+
+tr.distn {
+    font-size: 90%;
+}
+
+tr.distn td {
+    padding-bottom:0.75em;
+}
+
+td.answer {
+    text-align:left;
+}
+
+tr.distn span.insert {
+    border-bottom: 2px solid red;
+}
+
+tr.distn span.delete {
+    border-bottom: 2px solid red;
+}
+tr.distn span.subst {
+    border-bottom: 2px solid red;
+}
+tr.distn span.match {
+    border-bottom: 2px solid lightgreen;
+}
+
+span.subst {
+    visibility:visible;
+    border-bottom: 8px solid red;
+}
+
+span.match {
+    border-bottom: 8px solid lightgreen;
+}
+
+div.click {
+    border: 3px solid lightgreen;
+    background: green;
+    color: lightgrey;
+    padding: 3px;
+    width:auto;
+    float:left;
+}
+
+div.click:hover {
+    background: white;
+    color: darkgrey;
+}
+
+/* firefox says "unknown pseudo-class or pseudo-element" */
+/*div.click:blur {
+    background: green;
+    color: lightgrey;
+}*/
+
+table.test td {
+    border:1px dashed green;
+    padding-top:0.25em;
+    padding-bottom:0.25em;
+}
+
+span.qtype {
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    font-size:small;
+    border:#00cc00;
+    background:lightblue;
+    padding:0.25em;
+    padding-top:0.125em;
+    padding-bottom:0.125em;
+}
+
+span.remove {
+    font-size:small;
+    font-weight:lighter;
+}
+
+div.legend {
+    border: 2px solid lightblue;
+}
+
+div.error {
+    border: 2px solid lightred;
+    width:90%;
+}
+
+div.code {
+    text-align:left;
+    background:#eee;
+    font-family:monospace;
+    border:1%;
+    padding:1%;
+    width:100%;
+}
+
+// http://stackoverflow.com/questions/2874813/why-textarea-and-textfield-not-taking-font-family-and-font-size-from-body
+// TODO: be more specific: textarea.code-editor
+form {
+   font-family:monospace;
+}
+
+textarea {
+   font-family: inherit;
+   font-size: inherit;
+   font-family:monospace;
+}
+
+table.studenttest td {
+    padding-left:0.25em;
+    padding-right:0.25em;
+}
+
+th.delete {
+    text-align:center;
+}
+
+th.num {
+    text-align:right;
+}
+td.num {
+    text-align:right;
+}
+
+/* Create/Read/Update/Delete standard elements (TODO: move to crud.css) */
+.links {
+    white-space:nowrap;
+    border:1px solid lightgreen;
+    margin:0.25em;
+    width:auto;
+    margin-top:1.5em;
+    float:left;
+    border-top:
+}
+
+.links span {
+    padding-right:1em;
+}
+
+.delete {
+    float:right;
+}
+
+.user-alert {
+    float:right;
+    text-align:right;
+    color:#aaa;
+    font-style:italic;
+}
+
+table.striped tr:nth-of-type(odd) {
+  background-color:ghostwhite;
+}
+
+.flags {
+    float:left;
+    margin-left:20%;
+    width:60%;
+}
+
+.flag {
+    margin:1em;
+    border:0px solid black;
+    width:auto;
+    height:auto;
+    float:left;
+}
+
+.flag img {
+    width:100px;
+    height:66px;
+}
+
+.smallflag img {
+    width:75px;
+    height:49.500px;
+}
+
+.manage {
+    border:4px solid #e9ecae;
+    background: #e9ecae;
+}
+
+.manage h3 {
+    background: #aeecb4;
+}
+
+.language {
+    text-align:center;
+    font-size:larger;
+    width:100%;
+}
+
+.intro {
+    float:left;
+    text-align:center;
+    margin-top:1em;
+    padding:0.25em;
+    background:#caecae;
+    margin-left:10%;
+    width:80%;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    border:4px solid #caecae;
+}

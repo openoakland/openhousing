@@ -60,12 +60,30 @@ Find a mirror close to you - I chose:
 > install.packages(c("ggmap"))
 ```
 
-## Load the OaklandDemoZipTract.r
+## Get a census.gov API key
+
+Go to http://api.census.gov/data/key_signup.html and fill out the
+form, including your email address. You should soon receive a mail
+from ```no-reply@census.gov```. Click on the supplied link, and copy
+the API key from the email into OaklandDemoZipTract.r to replace the line:
+
+```
+APIkey = #Request your own key, as required by census api user agreement
+```
+
+with
+
+```
+APIkey = '0123456789abcdef...' # whatever your key is, surrounded by quotes.
+```
+
+## Load OaklandDemoZipTract.r into R.
 
 ```
 > setwd('~/openhousing/')
-> source('data/OaklandDemoZipTract.r')
+> source('OaklandDemoZipTract.r')
 ```
+
 
 
 

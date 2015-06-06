@@ -1,0 +1,18 @@
+div {
+    width:100%;
+    float:left;
+}
+
+th.intermediate {
+    border-bottom:1px dashed green;
+    vertical-align:top;
+}
+
+td.intermediate {
+    border-bottom:1px dashed green;
+}
+
+div.intermediate {
+    float:left;
+    width:90%;
+}

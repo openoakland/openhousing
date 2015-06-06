@@ -1,0 +1,21 @@
+#tourgameform {
+    top:2%;
+    height:35%;
+ }
+
+#map { 
+    height:50%;
+}
+ 
+#streetview {
+     position:absolute;
+    left:6%;
+    top:2%;
+    height:35%;
+    width:35%;
+}
+ 
+#gameinputdiv {
+    top:2%;
+    left:53%;
+}
