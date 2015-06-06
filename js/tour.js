@@ -9,68 +9,6 @@ var useProfilePicAsMarker = true;
 
 // End Configurable section.
 
-function get_quadrant(path,step) {
-    log(DEBUG,"GET QUADRANT: " + path);
-    var lat0 = path[step][0];
-    var lat1 = path[step+1][0];
-
-    var long0 = path[step][1];
-    var long1 = path[step+1][1];
-
-    var quadrant = 0;
-
-    if ((lat1 >= lat0) && (long1 >= long0)) {
-	log(INFO,"NORTHEAST: " + long1 + " => " + long0);
-	quadrant = 0;
-    }
-
-    if ((lat1 >= lat0) && (long1 < long0)) {
-	log(INFO,"NORTHWEST: " + long1 + " < " + long0);
-	quadrant = 3;
-    }
-
-    if ((lat1 < lat0) && (long1 >= long0)) {
-	log(INFO,"SOUTHEAST");
-	quadrant = 1;
-    }
-
-    if ((lat1 < lat0) && (long1 < long0)) {
-	log(INFO,"SOUTHWEST");
-	quadrant = 2;
-    }
-    return quadrant;
-}
-
-function get_heading(path,position_index) {
-    log(DEBUG,"GET_HEADING: " + path);
-    var quadrant = get_quadrant(path,position_index);
-
-    var lat0 = path[position_index][0];
-    var long0 = path[position_index][0];
-
-    var lat1 = path[position_index+1][0];
-    var long1 = path[position_index+1][0];
-
-    // lat1 > lat0: you are headed north.
-    // lat1 < lat0: you are headed south.
-//    var delta_x = Math.abs(lat0 - lat1);
-    var delta_x = lat0 - lat1;
-
-    // long1 > long0: you are headed east 
-    // long1 < long0: you are headed west. 
-
-//    var delta_y = Math.abs(long0 - long0);
-    var delta_y = long0 - long0;
-
-    var offset =  Math.abs((Math.atan2(delta_x,delta_y))) * (180/Math.PI);
-    //var heading = offset + (90 * quadrant);
-    var heading = (90 * quadrant) + 45;
-
-    $("#offset").val(offset);
-
-    return heading;
-}
-
 // every X milliseconds, decrement remaining time to answer this question on a tour.
 var tour_question_decrement_interval = 5000;
 
@@ -86,24 +24,11 @@ var current_zoom = 17;
 var current_lat;
 var current_long;
 
-// Firenze is defined in cities.js.
-// TODO: add tour_paths as an array of cities, rather than just one.
-var tour_paths = {
-    "it": {
-	"IT": Firenze
-    },
-    "es": {
-	"ES": Barcelona,
-	"MX": Mexico_DF
-    }
-};
-
 var iconMarker;
 
 function start_tour() {
     current_lat = 37.7996525;
     current_long = -122.2765788;
-    current_zoom = 15;
     heading = 0;
 
     map = L.map('map').setView([current_lat, current_long], current_zoom);
@@ -115,55 +40,6 @@ function start_tour() {
 	    'Imagery © <a href="http://mapbox.com">Mapbox</a>',
 	id: 'examples.map-i875mjb7'
     }).addTo(map);
-
-    /*
-    if (false && (useProfilePicAsMarker == true) && ($("#profile").attr("src") != null)) {
-	// TODO: move to map.js
-	var profileIcon = L.icon({
-	    iconUrl: $("#profile").attr("src"),
-	    iconSize:     [16, 16], // size of the icon
-	    shadowSize:   [30, 30], // size of the shadow
-	    iconAnchor:   [7.5, 35], // point of the icon which will correspond to marker's location
-	    shadowAnchor: [4, 62],  // the same for the shadow
-	    popupAnchor:  [-18, -25] // point from which the popup should open relative to the iconAnchor
-	});
-	if (target_language == "it") {
-	    marker = L.marker([current_lat, current_long]).addTo(map).bindPopup("<b>Benvenuti!</b>").openPopup();
-            iconMarker = L.marker([current_lat, current_long], {icon: profileIcon}).addTo(map);
-	}
-	if (target_language == "es") {
-	    marker = L.marker([current_lat, current_long]).addTo(map)
-		.bindPopup("<b>Bienvenidos!</b>").openPopup();
-	}
-    } else {
-	if (target_language == "it") {
-	    marker = L.marker([current_lat, current_long]).addTo(map)
-		.bindPopup("<b>Benvenuti!</b>").openPopup();
-	}
-	if (target_language == "es") {
-	    marker = L.marker([current_lat, current_long]).addTo(map)
-		.bindPopup("<b>Bienvenidos!</b>").openPopup();
-	}
-    }
-
-    
-    L.circle([current_lat, 
-	      current_long], 10, {
-	color: 'lightblue',
-	fillColor: 'green',
-	fillOpacity: 0.5
-    }).addTo(map).bindPopup("start")
-
-    for (i = 0; i < path.length; i++) {
-	L.circle([path[i][0],
-		  path[i][1]], 5, {
-		      color: 'lightblue',
-		      fillColor: 'transparent'
-		  }).addTo(map).bindPopup("path point: " + i);
-    }
-
-
-*/    
 
     var profileIcon = L.icon({
 	iconSize:     [16, 16], // size of the icon
@@ -183,20 +59,6 @@ function start_tour() {
     
     user_keypress(target_language,target_locale);
     tour_loop(target_language,target_locale,game_id);
-}
-
-function get_position_from_profile(target_language) {
-    /* determine where user is on map based on their profile. */
-    var retval;
-    $.ajax({
-	async: false,
-	cache: false,
-        dataType: "json",
-        url: "/tour/" + target_language + "/step",
-        success: function (content) {
-	    retval = content;
-	}});
-    return retval;
 }
 
 function tour_loop(target_language,target_locale) {
