@@ -26,8 +26,9 @@ rm(list=ls(all=TRUE)) ##Erase value of all variables
     
 ###BEGIN SCRIPT###
 #set working directory (Into this directory, place all of the data downloaded above)
-wDir = "~/your directory here" #(in Windows, the ~ represents "C:/Users/'username'/Documents")
-setwd(wDir)
+#wDir = "~/your directory here" #(in Windows, the ~ represents "C:/Users/'username'/Documents")
+#wDir = "~/your directory here" #(in Windows, the ~ represents "C:/Users/'username'/Documents")
+#setwd(wDir)
 
 #Load Libraries/Packages
 library(XML)
