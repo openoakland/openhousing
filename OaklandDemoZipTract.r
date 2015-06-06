@@ -48,12 +48,12 @@ library(RJSONIO)
 placeOak = read.csv("data/OakPlace.csv", header=TRUE)
 
 # get shape file of tracts in California (http://www.census.gov/cgi-bin/geo/shapefiles2010/layers.cgi)
-tractShp = readShapePoly("tl_2010_06001_tract10.shp")
+tractShp = readShapePoly("data/tl_2010_06001_tract10.shp")
 tractShp2=fortify(tractShp,region="TRACTCE10")
 tractShp3=tractShp2[tractShp2$id %in% placeOak$TRACT,]
 
 # get shape file of zip-codes in California (http://www.census.gov/cgi-bin/geo/shapefiles2010/layers.cgi)
-zipShp = readShapePoly("tl_2010_06_zcta510.shp")
+zipShp = readShapePoly("data/tl_2010_06_zcta510.shp")
 zipShp2=fortify(zipShp,region="ZCTA5CE10")
 zipShp3=zipShp2[zipShp2$id %in% placeOak$ZCTA5,]
 
