@@ -45,7 +45,7 @@ library(plyr)
 library(RJSONIO)
 
 ####SET-UP Mapping Data####
-placeOak = read.csv("OakPlace.csv", header=TRUE)
+placeOak = read.csv("data/OakPlace.csv", header=TRUE)
 
 # get shape file of tracts in California (http://www.census.gov/cgi-bin/geo/shapefiles2010/layers.cgi)
 tractShp = readShapePoly("tl_2010_06001_tract10.shp")
