@@ -10,12 +10,13 @@ var direction;
 
 var map;
 var marker;
-var current_zoom = 17;
+var current_zoom = 15;
 
 var current_lat;
 var current_long;
 
 var iconMarker;
+var sizeForAllIcons = [25, 30];
 
 function start_tour() {
     current_lat = 37.7996525;
@@ -32,6 +33,40 @@ function start_tour() {
 	id: 'examples.map-i875mjb7'
     }).addTo(map);
 
+    $.getJSON("latlonglookup.json", function(latlonglookup) {
+
+      $.getJSON("http://www.civicdata.com/api/action/datastore_search?resource_id=46ec0807-31ff-497f-bfa0-f31c796cdee8", function(buildingdata_page1) {
+
+          var all_buildings = buildingdata_page1['result']['records'];
+
+          // Below code will show all unique building descriptions if uncommented
+          //building_descriptions = _.map(all_buildings, function(building) { return building['Description'] } );
+          //unique_building_descriptions = _.uniq(building_descriptions);
+          //_.each(unique_building_descriptions, function(d) { console.log(d); } );
+
+          $.each(all_buildings, function(index,item){
+              var key = item['PermitNumber'];
+              var latlong = latlonglookup[key];
+
+              //fetch icon depending on description
+	      // TODO
+	      //              var status = getStatus(item['Description']);
+
+	      var softStoryIcon = L.icon({
+		  iconUrl: 'img/softStory.png',
+		  iconRetinaUrl: 'img/softStory@2x.png',
+		  iconSize: sizeForAllIcons,
+	      });
+
+	      var BuildingIcon = softStoryIcon;
+
+              L.marker(latlong, {icon: BuildingIcon}).addTo(map).bindPopup(item['StreetAddress'] + '<br><br>');
+            });
+      });
+    });
+
+
+    
     var profileIcon = L.icon({
 	iconSize:     [16, 16], // size of the icon
 	shadowSize:   [30, 30], // size of the shadow
@@ -53,8 +88,6 @@ function start_tour() {
 	current_long = e.latlng.lng;
 	
 	$("#streetviewiframe").attr("src","https://www.google.com/maps/embed/v1/streetview?key="+google_api_key+"&location="+current_lat+","+current_long+"&heading="+heading+"&pitch="+pitch+"&fov=35");
-
-	
     }
     
     map.on('click', onMapClick);
