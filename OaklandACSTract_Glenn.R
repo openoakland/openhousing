@@ -8,9 +8,7 @@ rm(list=ls(all=TRUE))
 		#http://www.census.gov/cgi-bin/geo/shapefiles2010/layers.cgi
 			#1) Census Tracts ("return to: main download page"-> "layer type: census tract" -> 
 				#"2010: California" -> "county: alameda")
-			#2) Zip-codes ('return to: main download page' -> 'layer type: zipcode tabulation areas'->
-				#'2010: California')
-
+			
 ###BEGIN SCRIPT###
 #set working directory (place all of the data downloaded above into this directory)
 wDir = "~/Open Oakland/Oakland Tract and ZipCode/Data"
