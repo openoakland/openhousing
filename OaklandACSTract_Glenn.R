@@ -1,20 +1,23 @@
 rm(list=ls(all=TRUE)) 
 ##Source of Code: http://notesofdabbler.bitbucket.org/2013_12_censusBlog/censusHomeValueExplore_wdesc.html
-##Install any needed packages using "install.packages('nameOfPackage')"
 
-##Hyperlinks to necessary data 
-	#Request APIkey at census.gov/developers
+##Necessary data 
+	#Request APIkey at census.gov/developers. Place the key in line 56
 	#Shape Files
-		#http://www.census.gov/cgi-bin/geo/shapefiles2010/layers.cgi
-			#1) Census Tracts ("return to: main download page"-> "layer type: census tract" -> 
-				#"2010: California" -> "county: alameda")
-			
+	#	http://www2.census.gov/geo/tiger/TIGER2010/TRACT/2010/tl_2010_06001_tract10.zip
+	#Download OakPlace.csv (found in openoakland/openhousing/data)
+	  #In gitHub, view RAW version of OakPlace.csv 
+	  #Then, copy and paste raw data to text editor (for me, notepad works better than excel)
+	  #Finally, save new file as .csv
 ###BEGIN SCRIPT###
-#set working directory (place all of the data downloaded above into this directory)
-wDir = "~/Open Oakland/Oakland Tract and ZipCode/Data"
-setwd(wDir)
+
+getwd()#Make sure 'OakPlace.csv' and ALL OF 5 FILES downloaded from the shapefile-link are 
+#	in the file path returned by this function. While only one file will be called by name, 
+# 	the other four provide support. 
+
 
 #Load Libraries/Packages
+##Install any needed packages using "install.packages('nameOfPackage')"
 library(XML)
 library(RCurl)
 
@@ -29,13 +32,14 @@ library(plyr)
 library(RJSONIO)
 
 library(methods)
-library(acs)
+library(acs) ##This library is the bread & butter of this version
 
 
 ####SET-UP Mapping Data####
 placeOak = read.csv("OakPlace.csv", header=TRUE)
 
-# get shape file of tracts in California (http://www.census.gov/cgi-bin/geo/shapefiles2010/layers.cgi)
+#get shape files http://www2.census.gov/geo/tiger/TIGER2010/TRACT/2010/tl_2010_06001_tract10.zip
+#ensure all five files downloaded from the link are in the working directory 
 tractShp = readShapePoly("tl_2010_06001_tract10.shp")
 tractShp2=fortify(tractShp,region="TRACTCE10")
 tractShp3=tractShp2[tractShp2$id %in% placeOak$TRACT,]
@@ -52,25 +56,27 @@ print(p)
 
 ####GET DEMOGRAPHICS####
 #Global Values
-#APIkey =("get your own")
+APIkey ="" #Place your API key in the quotes 
 #name TRACT as the place
-	placeShp3 = tractShp3
+placeShp3 = tractShp3
 
 
 ###2011 ACS DATA###
-#api.key.install(key=APIkey)
+api.key.install(key=APIkey) 
 tracts = placeOak$TRACT
 
 #Median Income
 fieldnm="B19013_001E"
 fieldName="MedInc"
 
+##This funtion is the entire point of the code. The acs library allows for the manipulation of ACS data while
+#	maintaining its statistical integrity. 
 medInc2 = acs.fetch(geo=geo.make(state=06,county = 001, tract=tracts),variable="B19013_001" )
 medInc = data.frame(cbind(tracts, as.numeric(estimate(medInc2))))
 names(medInc) = c("tract",fieldName)
 
 
-###MAP ACS Data###
+###MAP ACS Example Data###
 medInc$medIncCut = cut(medInc$MedInc, 
 		breaks = c(0,40000,60000,80000,500000),
 		labels=c("<40K","40-60K","60-80K",">80K"))
