@@ -2,7 +2,7 @@ rm(list=ls(all=TRUE))
 ##Source of Code: http://notesofdabbler.bitbucket.org/2013_12_censusBlog/censusHomeValueExplore_wdesc.html
 
 ##Necessary data 
-	#Request APIkey at census.gov/developers. Place the key in line 56
+	#Request APIkey at census.gov/developers. Place the key in line 59
 	#Shape Files
 	#	http://www2.census.gov/geo/tiger/TIGER2010/TRACT/2010/tl_2010_06001_tract10.zip
 	#Download OakPlace.csv (found in openoakland/openhousing/data)
