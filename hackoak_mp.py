@@ -3,11 +3,15 @@
 # script to parse and visualize Oakland major projects spreadsheet
 
 import openpyxl, sys
+from fuzzywuzzy import fuzz
 
 classlist = [ss.lower() for ss in ['Commercial, Industrial, and Civic Projects', 'Mixed-Use Projects', 'Residential Projects']]
-statelist = [ss.lower() for ss in ['Application Approved','Projects Under Construction','Under Construction','Application Submitted-Under Review','Pre-Application Discussions']]
+statelist = [ss.lower() for ss in ['Application Approved', 'Under Construction', 'Application Submitted-Under Review', 'Pre-Application Discussions']]
 
-def parse(sheetname):
+distrow = 4
+unitrow = 5
+
+def parseall(sheetname):
     """ Parse spreadsheet
     """
 
@@ -15,22 +19,23 @@ def parse(sheetname):
     sheets = wb.sheetnames
 
     d = {}
-    for sheet in sheets:
+    for sheet in [sheets[0]]:    # hacky. first sheet probably only one needed
         sh = wb[sheet]
-        good = 0; failed = 0
+        good = 0; failed = 0; thresh = 75
         for row in sh.rows:
             # first define class/state for following rows
             fil = filter(lambda cell: cell.value and type(cell.value) is unicode, row)   # remove Nones and non-unicode
-            clfil = filter(lambda cell: cell.value.encode('ascii', 'ignore').lower().strip() in classlist, fil)  # need to convert unicode to string correctly. lowercase and remove trailing empty spaces to match to template
-            stfil = filter(lambda cell: cell.value.encode('ascii', 'ignore').lower().strip() in statelist, fil)
-            try:
-                cl = clfil[0].value.lower()  # define current class of project
-            except:
-                pass
-            try:
-                st = stfil[0].value.lower()  # define current state of project
-            except:
-                pass
+            if len(fil) == 1:
+                clfil = filter(lambda cl: fuzz.ratio(fil[0].value.encode('ascii', 'ignore').lower().strip(), cl) > thresh, classlist)  # need to convert unicode to string correctly. lowercase and remove trailing empty spaces to match to template
+                stfil = filter(lambda st: fuzz.ratio(fil[0].value.encode('ascii', 'ignore').lower().strip(), st) > thresh, statelist)  # need to convert unicode to string correctly. lowercase and remove trailing empty spaces to match to template
+#                clfil = filter(lambda cell: cell.value.encode('ascii', 'ignore').lower().strip() in classlist, fil)  # need to convert unicode to string correctly. lowercase and remove trailing empty spaces to match to template
+#                stfil = filter(lambda cell: cell.value.encode('ascii', 'ignore').lower().strip() in statelist, fil)
+                if len(clfil) == 1:
+                    cl = clfil[0]
+                    print 'class = %s' % cl
+                if len(stfil) == 1:
+                    st = stfil[0]
+                    print 'state = %s' % st
 
             try:
                 key = st + ' --- ' + cl    # define keys that are available
@@ -56,24 +61,25 @@ def parse(sheetname):
                 continue      # some early rows don't have complete key
 
             if type(row[0].value) == int:   # this gives us a data row, which is indexed with an int cell
-                if 'units' in row[5].value.encode('ascii', 'ignore').lower():   # if this cell refers to "units"
+                if 'units' in row[unitrow].value.encode('ascii', 'ignore').lower():   # if this cell refers to "units"
                     try:
-                        units, aunits = getunits(row[5])
+                        units, aunits = getunits(row[unitrow])
                     except:
                         print
-                        print row[5].value
+                        print row[unitrow].value
                         try:
                             print '\t*** Auto parse failed. ***'
                             (units, aunits) = input('\t*** Enter (units, affordable units) above? (comma-delimited; type enter to skip) ***')
-                        except SyntaxError:
-                            pass
+                        except:
+                            print '*** Input not parsed correctly. Second try. ***'
+                            (units, aunits) = input('\t*** Enter (units, affordable units) above? (comma-delimited; type enter to skip) ***')
                         failed += 1
 
                     try:
-                        dist = getdist(row[4])
+                        dist = getdist(row[distrow])
                     except:
                         print
-                        print row[4].value
+                        print row[distrow].value
                         try:
                             dist = int(input('\t*** Auto parse failed. What district is given above? ***'))
                         except SyntaxError:
@@ -88,7 +94,7 @@ def parse(sheetname):
                     elif aunits:
                         d[key]['aunits'] += aunits
                         d[key]['ad'+str(dist)] += aunits
-        print 'Autoparsed %d rows and %d manually.' % (good, failed)
+        print 'Autoparsed %d rows. Parsed %d manually.' % (good, failed)
     return d
 
 def getunits(cell):
@@ -131,7 +137,6 @@ def getdist(cell):
             dist = int(cell2.split(' & ')[0])
         finally:
             print 'Parsed %s as district %d' % (cell2, dist)
-    
     else:
         dist = int(cell.value)
         print 'Parsed district %d' % (dist)
@@ -156,5 +161,5 @@ def table(d):
 
 if __name__ == '__main__':
     filename = sys.argv[1]
-    d = parse(filename)
+    d = parseall(filename)
     table(d)
