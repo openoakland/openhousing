@@ -5,3 +5,17 @@ http://www.google.com/url?q=http%3A%2F%2Fgrahamimac.com%2Fdata%2Fmaster_batch_ge
 Oakland Rent Board Complaints by Census Tract
 https://spjika.cartodb.com/tables/tractcomplaints/public/map
 
+Housing Alerts Document
+https://docs.google.com/spreadsheets/d/1hEh92dgNO-xyhxwHDh60xxpvqEqbas8SN57t1MosWGw/edit#gid=444230472
+
+Trulia Rent Monitor
+http://info.trulia.com/trulia-price-and-rent-monitor
+
+Zumper Rent Report
+https://www.zumper.com/blog/2015/03/zumper-us-rent-report-february-2015/
+
+City of Oakland Data Portal
+https://data.oaklandnet.com/
+
+Zillow Data Files
+http://www.zillow.com/research/data/
