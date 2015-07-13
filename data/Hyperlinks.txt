@@ -1,7 +1,6 @@
 Graham's Data
 http://www.google.com/url?q=http%3A%2F%2Fgrahamimac.com%2Fdata%2Fmaster_batch_geocoded.xlsx&sa=D&sntz=1&usg=AFQjCNGYBvi2vICXaELS9HkQWomHdA19Xg
 
-
 Oakland Rent Board Complaints by Census Tract
 https://spjika.cartodb.com/tables/tractcomplaints/public/map
 
