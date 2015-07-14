@@ -1,0 +1,67 @@
+Outline
+	A facsimile of a scientific method
+		-Define a specific range of years and geography we want to look 
+			-ex) The City of Oakland from 1990-2015 or The Counties of the Bay Area since the founding of Google
+		-Formulate null hypotheses before exploring the data
+			ex. there is no significant change in education levels within a tract over time
+			ex. the demographics within this tract do not represent the overall demographics within Oakland
+		-Three main categories of hypothesis 
+			1) There is no change within the tract over time
+			2) There is no significant differences between tracts during the same time
+			3) There is no correlation between factors x and y
+				-Could also be a multilinear model of what predicts an outcome
+					ex) median income, education, and population density affect violent crime rates
+		-When using samples, only use estimates with standard errors bounded between 0 and 30% of the true value
+			(This is an obscure line that I'll explain later -Tim)
+		-Report whether a test is statistically significant 
+		
+	Three Main Categories Of Data
+	1) Housing Cost/Cost of Living
+		-Rent/Housing prices (Zillow/Trulia/Zumper)
+		-Median Income (ACS)
+		-Foreclosure Data (Zillow/Graham's Data/City Data)
+		-What is considered a living wage (Formula Derived from Articles)
+		-Building permits (Github Data)
+			-Market/Affordable
+	2) Quality of Life
+		-Rent v Own/Mortgage(ACS)
+		-Upkeep of housing
+			-Health/Safety Code violations (City Data)
+			-Renovations (City Data)
+		-Crime statitics (from Oakland Data Portal)
+		-School Ratings (from Education API)
+		-Food deserts 
+			-Grocery stores (Google/Yelp)
+			-Farmer's Markets (Public Information)
+			-Drug/convenience stores (Google/Yelp)
+			-Fast Food v. Sit Down restaurants (Google/Yelp)
+	3) Mobility 
+		What is the net flow in/out?
+			-Total Housing Units (ACS)
+			-Total Population (ACS)
+			-Population from outside: (ACS)
+				-States
+				-Counties
+				-Cities
+		Are the demographics changing as people move? (ACS)
+			-Age
+			-Race
+				-White (in combination with any race)
+				-Black (in combination with any race)
+				-Latino/Hispanic (in combination with any race)
+				-Asian (in combination with any race)
+			-Occupation
+				-Blue Collar/White Collar (or some other )
+				-Unemployment rate
+			-Education
+				-GED
+				-College 
+				-High School
+				-Middle School	
+				
+	'Story of Oakland' (OpenHousing Google Drive/ The Internets)
+		-Blend primary literature, public policy, and community action on specific fights
+		-Review Articles in Google Drive and find the most engaging, honest, and provocative
+			to be summarized and reported
+		-Interview people?
+		
