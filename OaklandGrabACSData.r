@@ -9,7 +9,7 @@ rm(list=ls(all=TRUE))
 		#http://www.census.gov/cgi-bin/geo/shapefiles2010/layers.cgi
 			#1) Census Tracts ("return to: main download page"-> "layer type: census tract" -> 
 				#"2010: California" -> "county: alameda")
-  #Download OakPlace.csv from openoakland/openhousing/data
+  	#Download OakPlace.csv from openoakland/openhousing/data
 
 ##Set working directory
 wDir = "~/Open Oakland/Oakland Advanced ACS Data Extraction/Data"
@@ -81,7 +81,6 @@ locACSData <- function(mergedData, fieldName){
 }
 
 ##Start Grabbing ACS Data 
-
 #Median Income
 fieldnm="B19013_001"
 fieldName="MedianIncome"
@@ -90,7 +89,6 @@ MedianIncome = locACSData(extractData, fieldName)
 #"Mean:  15.32"
 #"Standard Deviation:  10.04"
 
-
 #Occupancy Status: Total
 fieldnm="B25002_001"
 fieldName="OccupancyStatusTotal"
@@ -98,7 +96,6 @@ extractData = ACSData(fieldnm, fieldName)
 OccupancyStatusTotal = locACSData(extractData, fieldName)
 #"Mean:  3.03"
 #"Standard Deviation:  5.29"
-
 
 #Occupancy Status: Occupied
 fieldnm="B25002_002"
@@ -115,3 +112,11 @@ extractData = ACSData(fieldnm, fieldName)
 OccupancyStatusVacant = locACSData(extractData, fieldName)
 # "Mean:  Inf"
 # "Standard Deviation:  NaN"
+
+#TotalPopulation
+fieldnm="B01003_001"
+fieldName="TotalPopulation"
+extractData = ACSData(fieldnm, fieldName)
+TotalPopulation = locACSData(extractData, fieldName)
+# "Mean:  7.95"
+# "Standard Deviation:  5.59"
