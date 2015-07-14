@@ -18,3 +18,9 @@ https://data.oaklandnet.com/
 
 Zillow Data Files
 http://www.zillow.com/research/data/
+
+ACS Variables Legend
+http://api.census.gov/data/2013/acs5/variables.html
+
+Census Variables Legend
+http://api.census.gov/data/2010/sf1/variables.html
