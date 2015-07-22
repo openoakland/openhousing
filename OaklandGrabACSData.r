@@ -60,8 +60,8 @@ ACSData <- function(fieldnm, fieldName){
 	#Determine how precise/accurate the estimates are, by percentage
 	percentError <- transform(mergedData, perError = (Error/get(fieldName)*100))
 	attach(percentError)
-	print(paste("Mean: ",round(mean(perError),2)))
-	print(paste("Standard Deviation: ",round(sd(perError),2)))
+	print(paste("Mean: ",round(mean(perError),2)))    # average error rate of the median value (as a percent)
+	print(paste("Standard Deviation: ",round(sd(perError),2)))   #standard deviation of above
 	detach(percentError)
 	
 	return(mergedData)
