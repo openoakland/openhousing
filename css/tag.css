@@ -1,0 +1,31 @@
+.edit {
+    width:auto;
+    text-align:center;
+    color:#666;
+}
+
+.create {
+    margin-top:1em;
+    width:100%;
+    float:left;
+}
+
+.number {
+    text-align:right;
+}
+
+.gen table {
+    width:10em;
+}
+
+.gen table {
+    width:10em;
+}
+
+th {
+    text-align:left;
+}
+
+span.date {
+    white-space:nowrap;
+}

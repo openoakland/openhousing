@@ -1,0 +1,4 @@
+var encouragements = [
+    "Bueno!",
+];
+

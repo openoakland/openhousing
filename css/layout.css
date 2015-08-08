@@ -1,0 +1,318 @@
+/* put the following here: width,float,height.. */
+body {
+}
+
+h1 {
+    width:auto;
+    float:left;
+}
+
+h3 {
+    padding-left:0.5em;
+    float:left;
+    width:100%;
+}
+
+
+table {
+    float:left;
+}
+
+div#top {
+    padding:0;
+    margin:0;
+    float:left;
+    width:auto;
+}
+
+div.menubar {
+    padding:0;
+    margin:0;
+    margin-bottom:0.5em;
+    width:auto;
+    float:left;
+}
+
+div.menubar div {
+    float:left;
+    width:auto;
+}
+
+div.major {
+    width:100%;
+    float:left;
+}
+
+div.major h2 {
+    padding:0.25em;
+    margin:0;
+    background: #caecae;
+}
+
+div#content {
+    width:99%;
+    border:0px dashed blue;
+    float:left;
+    padding:0em;
+    margin:0;
+}
+
+div.poweredbox {
+    float:left;
+    white-space:nowrap;
+    text-align:center;
+    display:block;
+}
+
+div.poweredbox table {
+    margin:1%;
+    width:98%;
+}
+
+div.poweredbox td {
+    -webkit-border-radius: 7px;
+    -moz-border-radius: 7px;
+    border-radius: 7px;
+    border:4px solid #71fbfb;
+    background:#71fbfb;
+    margin-top:0.5em;
+    margin-bottom:0.5em;
+    padding-bottom:2px;
+}
+
+table.italianquiz td {
+    -webkit-border-radius: 7px;
+    -moz-border-radius: 7px;
+    border-radius:7px;
+    border:4px solid #11ceff;
+    background:#11ceff;
+    margin-top:0.5em;
+    margin-bottom:0.5em;
+    padding-bottom:2px;
+}
+
+div.groupinglabel {
+    float:left;
+    font-size:smaller;
+}
+
+div.groupinglabel2 {
+    width:100%;
+    float:left;
+}
+
+div.groupinglabel2 span.label {
+    padding-left:2%;
+    font-size:100%;
+    float:left;
+    text-align:left;
+}
+
+table.groupinglabel2 td {
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    border:4px solid #11ceff;
+    background:#71fbfb;
+    padding:2%;
+    margin:0%;
+    margin-top:2%;
+    margin-bottom:2%;
+}
+
+div.guess {
+    width:70%;
+}
+
+div.question {
+    display:block;
+    width:55%;
+    float:left;
+}
+
+div.history {
+    float:right;
+}
+
+table.question {
+    width:100%;
+}
+
+table.quiz {
+    width:100%;
+}
+
+div.quiz {
+    width:100%;
+    float:left;
+}
+
+div.quiz-elem {
+    width:99%;
+    float:left;
+}
+
+div.stats {
+    left:0;
+    top:70%;
+}
+
+div.stats table {
+    float:left;width:80%;
+}
+
+div#controls {
+    width:auto;
+}
+
+div#controls input.submit {
+    float:right;
+    width:50%;
+}
+
+div.welcome {
+    float:right;
+}
+
+div.history {
+    width:45%;
+    right:0;
+}
+
+#ajax_quiz {
+    float:left;
+    width:90%;
+}
+
+#ajax_quiz input {
+    margin:0.5em;
+}
+
+table.quiz {
+    margin-left:0.25em;
+    width:100%;
+}
+
+table.quiz td.en {
+    width: 40%;
+}
+
+
+#quiz_table {
+}
+
+#quiz_table td.corr {
+    padding-bottom:0.5em;
+}
+
+/* 'incorrect' being used somewhere else (TODO fix name collision). */
+#quiz_table td.incorr {
+    padding-bottom:1em;
+}
+
+#quiz_table {
+    border-collapse:collapse;
+    width:100%;
+    margin-top:0.5em;
+}
+
+#quiz_table tbody {
+    width:100%;
+}
+
+#quiz_table tr {
+    width:100%;
+}
+
+#quiz_container {
+    width:98%;
+    float:left;
+    margin-bottom:1em;
+}
+
+#controls_container {
+    float:left;
+}
+
+/* search */
+
+div#search-ui {
+    float:left;
+}
+
+div#searchbar {
+    width:100%;
+    margin:0.5em;
+    float:left;
+}
+
+div#searchbar button {
+    margin-left:1em;
+}
+
+div#searchresults {
+    width:100%;
+    padding:0.5em;
+    float:left;
+}
+
+div.respond {
+    margin:0.3em;
+}
+
+div.login {
+    font-size:smaller;
+    text-align:right;
+    padding:3px;
+    margin:0;
+    float:right;
+    width:auto;
+}
+
+div.login p {
+    padding:0;
+    margin:0;
+}
+
+div.login form {
+    padding:0;
+    margin:0;
+    width:auto;
+}
+
+
+div.login form div {
+    width:auto;
+    padding:0;
+    margin:0;
+}
+
+div.login input {
+    padding:0;
+    margin:0;
+}
+
+
+div.login input.button {
+    padding:5px;
+    margin:3px;
+}
+
+body > div {
+    margin-left:1%;
+}
+
+div.newlink {
+    float:left;
+    width:100%;
+    padding:0.25em;
+}
+
+div.login img {
+    width:30px;
+}
+
+/* hide internal-auth login form: only Google auth is shown, for now. */
+div.login form {
+    display:none;
+}

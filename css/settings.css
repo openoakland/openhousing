@@ -1,0 +1,61 @@
+#generation > div {
+    float:left;
+}
+
+#currentsize {
+    width:100%;
+}
+
+#vocabulary {
+    float:left;
+    width:100%;
+}
+
+#vocabulary > div {
+    margin:0.5em;
+    padding:0.25em;
+}
+
+#inflections {
+    float:right;
+    width:50%;
+}
+
+verbs.table th {
+    text-align:right;
+    padding:0.25em;
+    margin:.5em;
+}
+
+#verbs {
+    float:left;
+    width:100%;
+    border:0px dashed blue;
+}
+
+.lexeme {
+    border:0px dashed green;
+    padding-left:2em;
+    margin:0;
+}
+
+.lexeme > div {
+    border:0px dashed green;
+    padding:0;
+    margin:0;
+}
+
+tr.lexeme > td {
+}
+
+.example {
+    border:0px solid blue;
+}
+
+#verbs th {
+    text-align:left;
+}
+
+div.gen_source {
+    border:0px dashed green;
+}

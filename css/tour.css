@@ -1,0 +1,400 @@
+.tourelement { /* common attributes of the UI chrome on top of the background of the maps. */
+    -moz-border-radius:5px;
+    -webkit-border-radius:5px;
+    border-radius:5px;
+    border:1px solid #18ab29;
+    background:ivory;
+    position:absolute;
+    padding:0.5em;
+    margin-right:1em;
+    opacity:0.85;
+    filter:alpha(opacity=85); /* For IE8 and earlier */
+}
+
+#chooser {
+    position: absolute;
+    top:2%;
+    left:8%;
+    width:20em;
+}
+
+#chooserselect {
+    float:right;
+}
+
+/* TODO: factor out stuff in common with .tourelement, and remove, and make those elements
+   inherit from .tourelement instead.*/
+#tourgameform {
+    -moz-border-radius:5px;
+    -webkit-border-radius:5px;
+    border-radius:5px;
+    border:1px solid #18ab29;
+    float:right;
+    background:ivory;
+    position:absolute;
+    right:10px;
+    top:2%;
+    padding:0.5em;
+    width:35%;
+    margin-right:1em;
+    opacity:0.85;
+    filter:alpha(opacity=85); /* For IE8 and earlier */
+}
+
+#tourgameform form input[type="text"] {
+    text-transform: lowercase;
+}
+
+#correctanswer {
+    font-size:200%;
+    position:absolute;
+    left:40%;
+    top:10%;
+    white-space:nowrap;
+    display:none;
+    border-radius: 5px;
+    border:2px solid darkgrey;
+    background: lightgreen;
+    z-index:10;
+}
+
+button#non_lo_so {
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  border-radius: 15px;
+  float:right;
+  font-size: 14px;
+  background: #08ba02;
+  padding-top:0.125em;
+  padding-bottom:0.125em;
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+}
+
+div.accents {
+    padding:0.25em;
+    margin:0.25em;
+    width:auto;
+    float:left;
+}
+
+button.accented {
+    margin:1px;
+}
+
+#userprogresscontainer {
+    margin:4px;
+    float:left;
+    padding:2px;
+    font-size:200%;
+    width:100%;
+    height:1em;
+    border-radius: 5px;
+    color: transparent;
+    -moz-border-radius:18px;
+    -webkit-border-radius:18px;
+    border-radius:18px;
+    border:1px solid green;
+}
+
+#userprogress {
+    -moz-border-radius:28px;
+    -webkit-border-radius:28px;
+    border-radius:28px;
+    border:0px solid lightgreen;
+    background:lightgreen;
+    height:100%;
+    width:0%;
+}
+
+#tourquestion {
+    -moz-border-radius:5px;
+    -webkit-border-radius:5px;
+    border-radius:5px;
+    white-space:nowrap;
+    text-align:center;
+    width:75%;
+    margin-left:12%;
+    padding:2px;
+    border:1px solid red;
+    background:lightgreen;
+}
+
+#tourgameform input {
+    margin:0.5em;
+    font-size:150%;
+}
+
+#map {
+    position:absolute;
+    left:0;
+    top:0;
+    width:100%;
+    height:100%;
+}
+
+#streetview {
+    position:absolute;
+    left:2%;
+    top:55%;
+    height:40%;
+    width:95%;
+}
+
+#streetviewiframe {
+    height:100%;
+    width:100%;
+}
+
+#navigation {
+    display:none;
+}
+
+#non_so {
+    white-space:nowrap;
+    background-color:#44c767;
+    -moz-border-radius:28px;
+    -webkit-border-radius:28px;
+    border-radius:28px;
+    border:1px solid #18ab29;
+    display:inline-block;
+    color:#ffffff;
+    font-family:arial;
+    font-size:17px;
+    text-decoration:none;
+    text-shadow:0px 1px 0px #2f6627;
+}
+
+#non_so:hover {
+    background-color:#5cbf2a;
+}
+
+#non_so:active {
+    position:relative;
+    top:1px;
+}
+
+#kilos {
+    padding:1px;
+    width:5em;
+    float:right;
+    color:green;
+}
+
+#gameinputdiv {
+    float:left;
+    width:95%;
+    margin-left:5%;
+}
+
+/* position of elements are relative to the background (the map).*/
+div#menubar {
+    z-index:5;
+    position:absolute;
+    top:1%;
+    font-size:smaller;
+    left:45%;
+    padding:0;
+    margin:0;
+    opacity:0.85;
+    filter:alpha(opacity=85); /* For IE8 and earlier */
+}
+
+div#menubar div {
+    -moz-border-radius:5px;
+    -webkit-border-radius:5px;
+    border-radius:5px;
+}
+
+/* device-dependent styles: */
+/* Thanks to http://stephen.io/mediaqueries/ */
+/* iPhone 6+ */
+@media only screen 
+and (min-device-width : 414px) 
+and (max-device-width : 736px)
+and (orientation : landscape) {
+    div#header { 
+	background-image: url(tablet-background.jpg);
+	height: 100px; position: relative; 
+    }
+
+    #tourgameform {
+	top:2%;
+	height:35%;
+    }
+
+    #map { 
+	height:50%;
+    }
+ 
+    #streetview {
+	position:absolute;
+	left:6%;
+	top:2%;
+	height:35%;
+	width:35%;
+    }
+ 
+    #gameinputdiv {
+	top:2%;
+	left:53%;
+    }
+}
+
+@media only screen 
+and (min-device-width : 414px) 
+and (max-device-width : 736px)
+and (orientation : portrait) {
+    #non_so {
+	left:50%;
+    }
+
+    #menubar {
+	position:absolute;
+	top:1%;
+	left:95%;
+    }
+
+    #tourgameform {
+	position:absolute;
+	left:62%;
+	top:15%;
+	height:15%;
+	width:35%;
+    }
+
+    #map { 
+	height:50%;
+    }
+ 
+    #streetview {
+	position:absolute;
+	left:62%;
+	top:2%;
+	height:13%;
+	width:35%;
+    }
+ 
+    #gameinputdiv {
+    }
+}
+
+/* iPhone 6 */
+@media only screen 
+and (min-device-width : 375px) 
+and (max-device-width : 667px)
+and (orientation : landscape) {
+    div#header { 
+	background-image: url(tablet-background.jpg);
+	height: 100px; position: relative; 
+    }
+
+    #tourgameform {
+	top:2%;
+	height:35%;
+    }
+
+    #map { 
+	height:50%;
+    }
+ 
+    #streetview {
+	position:absolute;
+	left:6%;
+	top:2%;
+	height:35%;
+	width:35%;
+    }
+ 
+    #gameinputdiv {
+	top:2%;
+	left:53%;
+    }
+}
+
+/* iPhone 5&5s */
+@media only screen 
+and (min-device-width : 320px) 
+and (max-device-width : 568px)
+and (orientation : landscape) {
+    div#header { 
+	background-image: url(tablet-background.jpg);
+	height: 100px; position: relative; 
+    }
+
+    #tourgameform {
+	top:2%;
+	height:35%;
+    }
+
+    #map { 
+	height:50%;
+    }
+ 
+    #streetview {
+	position:absolute;
+	left:6%;
+	top:2%;
+	height:35%;
+	width:35%;
+    }
+ 
+    #gameinputdiv {
+	top:2%;
+	left:53%;
+    }
+}
+
+/* iPhone  2G-4S */
+@media only screen 
+and (min-device-width : 320px) 
+and (max-device-width : 480px)
+and (orientation : landscape) {
+    div#header { 
+	background-image: url(tablet-background.jpg);
+	height: 100px; position: relative; 
+    }
+
+    #tourgameform {
+	top:2%;
+	height:35%;
+    }
+
+    #map { 
+	height:50%;
+    }
+ 
+    #streetview {
+	position:absolute;
+	left:6%;
+	top:2%;
+	height:35%;
+	width:35%;
+    }
+ 
+    #gameinputdiv {
+	top:2%;
+	left:53%;
+    }
+}
+
+
+div.login {
+    z-index:5;
+    position:absolute;
+    top:1%;
+    font-size:smaller;
+    left:15%;
+    padding:0;
+    margin:0;
+    opacity:0.85;
+    background:#F9F7E9;
+    filter:alpha(opacity=85); /* For IE8 and earlier */
+    border: 1px solid #18AB29;
+    padding:2px;
+}
+
+/* hide internal-auth login form in tour mode. */
+div.login form {
+    display:none;
+}

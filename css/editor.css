@@ -1,0 +1,258 @@
+.game_container {
+    width:95%;
+    margin-left:0.5em;
+    float:left;
+    margin-top:1.5em;
+    border-bottom: 1px solid lightgrey;
+}
+
+div.cb-col {
+    background: #caecae;
+    border-bottom:1px solid #90d6fa;
+    padding-bottom:0.5em;
+    margin-bottom:1em;
+    padding-left:1em;
+    float:left;
+    with:auto;
+}
+
+div.field-group {
+    width:95%;
+    float:left;
+    padding:0.5em;
+    border-bottom:1px solid lightgrey;
+}
+
+div.input-shell {
+    padding:0.5em;
+}
+
+div#exampletable {
+    width:100%;
+    float:left;
+}
+div#exampletable > table {
+    width:100%;
+    float:left;
+}
+
+div.gameinfo {
+    width:100%;
+}
+
+div.gameinfo > div {
+    float:left;
+    width:33%;
+}
+
+div.expressions {
+    float:left;
+    width:50;
+}
+
+div.specs {
+    float:left;
+    border:2px solid #ccc;
+    padding:1%;
+    margin:1%;
+}
+
+div.specs h3 {
+    width:100%;
+    float:left;
+}
+div.spec {
+    float:left;
+    width:50%;
+}
+
+div.spec h4 {
+    width:100%;
+    float:left;
+}
+div.expressions table {
+    float:right;
+}
+div.specs table.striped {
+    float:left;
+    width:100%;
+}
+div.section {
+    float:left;
+    width:100%;
+}
+
+div.section button {
+    float:right;
+}
+
+table.padded {
+    width:100%;
+}
+
+table.padded th,td {
+    padding:0.5em;
+}
+
+div.anyof {
+    -moz-border-radius:5px;
+    -webkit-border-radius:5px;
+    border-radius:5px;
+    border:1px solid #18ab29;
+    float:left;
+    background:ivory;
+    padding:0.25em;
+    margin-right:1em;
+    text-align:center;
+    margin-bottom:0.25em;
+}
+
+div.edit_game {
+    -moz-border-radius:5px;
+    -webkit-border-radius:5px;
+    border-radius:5px;
+    padding:1px;
+}
+
+div.edit_game:hover {
+
+    background:lightgreen;
+}
+
+div.sourcegroup {
+}
+
+div.targetgroup {
+}
+
+div.group {
+    -moz-border-radius:5px;
+    -webkit-border-radius:5px;
+    border-radius:5px;
+    margin-top:5px;
+    border:1px solid #18ab29;
+    float:left;
+    background:lightblue;
+    padding:0.5em;
+    margin-right:1em;
+}
+
+div.group:hover {
+    background:#e9ecae;
+}
+
+.new {
+    margin-top:1em;
+    margin-left:1em;
+    float:left;
+}
+
+button.confirm_delete {
+    -moz-border-radius:5px;
+    -webkit-border-radius:5px;
+    border-radius:5px;
+    border:darkgrey;
+    padding:3px;
+    background:red;
+}
+
+div.editpopup {
+    display:none;
+    z-index:2;
+    position:absolute;
+    left:10%;
+    top:40%;
+    width:80%;
+    -moz-border-radius:5px;
+    -webkit-border-radius:5px;
+    border-radius:5px;
+    border:solid #aee6ec 5px;
+}
+
+
+div.editgame {
+    float:left;
+    background:#e9ecae;
+    padding:3px;
+}
+
+div.editgroup {
+    background:#e9ecae;
+    -moz-border-radius:5px;
+    -webkit-border-radius:5px;
+    border-radius:5px;
+    border:solid #aee6ec 5px;
+    padding:3px;
+    display:none;
+    z-index:2;
+    position:absolute;
+    left:10%;
+    top:40%;
+    width:80%;
+}
+
+div.editgroup textarea {
+    font-family:monospace;
+}
+
+div.edit {
+    font-size:smaller;
+    float:left;
+    width:40%;
+}
+
+div.delete {
+    font-size:smaller;
+    float:right;
+    width:40%;
+}
+
+div.dangerzone {
+    width:100%;
+    background:lightsalmon;
+    float:left;
+    padding:0.5em;
+    margin-top:5em;
+}
+
+div.new {
+    float:left;
+    width:100%;
+    text-align:left;
+}
+
+div.new button {
+    margin-left:1em;
+}
+
+table.tense th,td {
+    padding:0.5em;
+}
+
+th.count {
+    text-align:right;
+}
+
+table.tense td.lexeme {
+    font-size:larger;
+    text-align:right;
+}
+
+td.count {
+    font-size:larger;
+    text-align:right;
+}
+
+td.zerowarning {
+    background:salmon;
+}
+
+div.spec {
+    font-size:small;
+    display:none;
+}
+
+td.selected {
+    background:#d4d6fa;
+}
+

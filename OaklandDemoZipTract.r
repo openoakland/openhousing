@@ -26,8 +26,9 @@ rm(list=ls(all=TRUE)) ##Erase value of all variables
     
 ###BEGIN SCRIPT###
 #set working directory (Into this directory, place all of the data downloaded above)
-wDir = "~/your directory here" #(in Windows, the ~ represents "C:/Users/'username'/Documents")
-setwd(wDir)
+#wDir = "~/your directory here" #(in Windows, the ~ represents "C:/Users/'username'/Documents")
+#wDir = "~/your directory here" #(in Windows, the ~ represents "C:/Users/'username'/Documents")
+#setwd(wDir)
 
 #Load Libraries/Packages
 library(XML)
@@ -44,15 +45,15 @@ library(plyr)
 library(RJSONIO)
 
 ####SET-UP Mapping Data####
-placeOak = read.csv("OakPlace.csv", header=TRUE)
+placeOak = read.csv("data/OakPlace.csv", header=TRUE)
 
 # get shape file of tracts in California (http://www.census.gov/cgi-bin/geo/shapefiles2010/layers.cgi)
-tractShp = readShapePoly("tl_2010_06001_tract10.shp")
+tractShp = readShapePoly("data/tl_2010_06001_tract10.shp")
 tractShp2=fortify(tractShp,region="TRACTCE10")
 tractShp3=tractShp2[tractShp2$id %in% placeOak$TRACT,]
 
 # get shape file of zip-codes in California (http://www.census.gov/cgi-bin/geo/shapefiles2010/layers.cgi)
-zipShp = readShapePoly("tl_2010_06_zcta510.shp")
+zipShp = readShapePoly("data/tl_2010_06_zcta510.shp")
 zipShp2=fortify(zipShp,region="ZCTA5CE10")
 zipShp3=zipShp2[zipShp2$id %in% placeOak$ZCTA5,]
 
@@ -61,7 +62,7 @@ x=get_googlemap(center="Oakland",maptype=c("roadmap"))
 
 ####GET DEMOGRAPHICS####
 #Global Values
-APIkey = #Request your own key, as required by census api user agreement
+APIkey = '53626026246a1ac81f5b8c7f66854ec25194a5c1'
 state=06 #California
 county = 001 #Alameda County
 #Set-up zip code and tract
@@ -80,7 +81,7 @@ getCensusData=function(APIkey,state,place, fieldnm, fieldName){
   resURL=paste("http://api.census.gov/data/2010/sf1?get=",fieldnm,
                place[1],state,"&key=",
                APIkey,sep="")
-  dfJSON=fromJSON(resURL)
+dfJSON=fromJSON(resURL)
   dfJSON=dfJSON[2:length(dfJSON)]
   num = as.integer(place[[2]])
   dfJSON_place=sapply(dfJSON,function(x) x[num])

@@ -1,0 +1,79 @@
+div#quiz_container div.controls {
+    margin:1em;
+    padding:2px;
+    float:right;
+    border:2px solid lightgreen;
+}
+
+div#quiz_container div.controls td {
+    padding:2px;
+    padding-right:10px;
+}
+
+div#quiz_container div.controls th {
+    text-align:right;
+    padding:2px;
+}
+
+
+tr.undefined {
+    background:red;
+}
+
+tr.undefined td {
+    background:yellow;
+}
+
+div#qa {
+    margin-left:1%;
+    float:left;
+    width:100%;
+}
+
+div#ajax_question {
+    font-size:150%;
+    width:auto;
+    float:left
+}
+
+div#guess_input_div {
+    width:auto;
+    float:left;
+}
+
+div#guess_input_div input {
+    font-size:150%;
+}
+
+div#guess_respond_button {
+    float:left;
+    width:25%;
+}
+
+div#ajax_question {
+    padding:0.25em;
+    margin:0.25em;
+    float:left;
+}
+
+div#question_text {
+    border:0px dashed green;
+}
+
+#question_id {
+    display:none;
+    border:2px dashed green;
+    background:#ccc;
+}
+
+#queue_size {
+    display:none;
+    border:2px dashed green;
+    background:#ccc;
+}
+
+#ajax_quiz {
+}
+
+#quiz_table {
+}

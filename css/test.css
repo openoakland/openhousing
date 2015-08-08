@@ -1,0 +1,4 @@
+/* styles specific to student testing elements */
+div.testeditor form {
+    margin:0.25em;
+}
